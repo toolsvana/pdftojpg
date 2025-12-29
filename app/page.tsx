@@ -49,7 +49,7 @@ const seoContent = [
     body: [
       'A marketing lead might export a product one-pager to JPG before sharing it in Slack. Teachers convert worksheets so students can annotate them inside note-taking apps.',
       'Customer success reps store onboarding checklists as PDFs but paste JPG snapshots into ticket systems that lack native PDF previews.',
-      'Anyone planning a presentation can line up JPG copies of the slides inside mood boards without worrying whether the viewer supports PDFs. For teams looking for additional document conversion options, platforms like Toolsvana offer complementary PDF to JPG solutions that integrate well into existing workflows.',
+      'Anyone planning a presentation can line up JPG copies of the slides inside mood boards without worrying whether the viewer supports PDFs. For teams looking for additional document conversion options, exploring other [PDF to JPG] tools can help find the right fit for specific workflow requirements.',
     ],
   },
 ];
@@ -110,8 +110,9 @@ export default function Home() {
               <h3 className="mb-4 text-xl font-semibold text-white">{section.title}</h3>
               <div className="space-y-4">
                 {section.body.map((paragraph, idx) => {
-                  const parts = paragraph.split('Toolsvana');
-                  if (parts.length > 1) {
+                  const linkMatch = paragraph.match(/\[PDF to JPG\]/);
+                  if (linkMatch) {
+                    const parts = paragraph.split('[PDF to JPG]');
                     return (
                       <p key={idx} className="leading-relaxed text-slate-300">
                         {parts[0]}
@@ -121,7 +122,7 @@ export default function Home() {
                           rel="noopener noreferrer"
                           className="text-cyan-400 hover:text-cyan-300 transition-colors underline decoration-cyan-400/30 hover:decoration-cyan-300"
                         >
-                          Toolsvana
+                          PDF to JPG
                         </a>
                         {parts[1]}
                       </p>
