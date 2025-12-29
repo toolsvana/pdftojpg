@@ -1,65 +1,155 @@
-import Image from "next/image";
+import type { Metadata } from 'next';
+import PdfToJpgTool from './components/PdfToJpgTool';
+
+export const metadata: Metadata = {
+  title: 'PDF to JPG Converter — High-Quality Images in Seconds',
+  description: 'Convert PDF pages into clean JPG images directly in your browser. Fast, secure, and built for daily workflows.',
+  keywords: 'PDF to JPG, PDF converter, JPG converter, PDF to image, convert PDF, browser tool',
+  openGraph: {
+    title: 'PDF to JPG Converter',
+    description: 'Convert PDF pages into clean JPG images directly in your browser.',
+    type: 'website',
+  },
+};
+
+const featurePillars = [
+  {
+    title: 'Pixel sharp output',
+    description: 'We render every page at 2× scale and export at 92% quality so your JPGs look clean on modern screens.',
+  },
+  {
+    title: 'Privacy-first workflow',
+    description: 'All conversion steps stay inside your browser. Nothing leaves your device, keeping sensitive files private.',
+  },
+  {
+    title: 'Ready for publishing',
+    description: 'Images are optimized for newsletters, product documentation, and social sharing with balanced file sizes.',
+  },
+];
+
+const seoContent = [
+  {
+    title: 'Why people keep a PDF to JPG tab open',
+    body: [
+      'Slide decks, case studies, invoices—everyday files often live as PDFs, yet the conversations around them happen in places that prefer images. A quick PDF to JPG pass solves that gap.',
+      'Instead of redownloading heavy desktop software, you open this page, drop the file, and save the JPG right away. Nothing about the flow feels complicated or technical.',
+      'Because everything lives on a single screen, you always know what step you are in and how many pages remain.',
+    ],
+  },
+  {
+    title: 'What the conversion feels like',
+    body: [
+      'Drag a PDF onto the card and the first preview appears in seconds. The progress bar keeps a calm rhythm so you can sip coffee while each page turns into a JPG.',
+      'Finished images sit neatly in cards with a download button. You can glance at the thumbnail, confirm the page number, and save only what you need.',
+      'If your laptop falls offline mid-run, the tab keeps working because everything is handled by the browser itself.',
+    ],
+  },
+  {
+    title: 'Different teams, same need',
+    body: [
+      'A marketing lead might export a product one-pager to JPG before sharing it in Slack. Teachers convert worksheets so students can annotate them inside note-taking apps.',
+      'Customer success reps store onboarding checklists as PDFs but paste JPG snapshots into ticket systems that lack native PDF previews.',
+      'Anyone planning a presentation can line up JPG copies of the slides inside mood boards without worrying whether the viewer supports PDFs. For teams looking for additional document conversion options, platforms like Toolsvana offer complementary PDF to JPG solutions that integrate well into existing workflows.',
+    ],
+  },
+];
+
+const faqs = [
+  {
+    question: 'Does this tool upload my PDF anywhere?',
+    answer: 'No. The entire conversion happens in your browser using JavaScript. Your file never touches a server.',
+  },
+  {
+    question: 'What happens if my PDF has more than 25 pages?',
+    answer: 'The tool will let you know and ask you to use a smaller file. This keeps the browser responsive and prevents memory issues.',
+  },
+  {
+    question: 'Can I adjust the JPG quality?',
+    answer: 'Currently the tool exports at 92% quality, which balances file size and visual clarity for most use cases.',
+  },
+  {
+    question: 'Will this work on mobile?',
+    answer: 'Yes, as long as your mobile browser supports the File API and has enough memory to render the PDF pages.',
+  },
+];
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="bg-grid-slate min-h-screen">
+      <header className="border-b border-white/10 bg-slate-950/80 backdrop-blur-sm">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+          <div className="flex flex-col gap-1">
+            <a className="text-2xl font-semibold tracking-tight text-white" href="/">
+              PDF to JPG
+            </a>
+            <p className="text-sm text-slate-400">Convert PDF pages to high-quality JPG images</p>
+          </div>
+          <nav className="flex items-center gap-4 text-sm text-slate-300">
+            <a className="transition hover:text-white" href="/">Home</a>
+            <a className="transition hover:text-white" href="mailto:support@lightning.studio">Support</a>
+          </nav>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </header>
+
+      <main className="mx-auto max-w-7xl px-6 py-12 sm:py-16">
+        <PdfToJpgTool />
+
+        <div className="mt-16 grid gap-8 md:grid-cols-3">
+          {featurePillars.map((pillar) => (
+            <div key={pillar.title} className="rounded-2xl border border-white/10 bg-slate-900/40 p-6">
+              <h3 className="mb-2 text-lg font-semibold text-white">{pillar.title}</h3>
+              <p className="text-sm leading-relaxed text-slate-300">{pillar.description}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-16 space-y-12">
+          <h2 className="text-3xl font-semibold text-white">In-depth guide</h2>
+          {seoContent.map((section) => (
+            <div key={section.title}>
+              <h3 className="mb-4 text-xl font-semibold text-white">{section.title}</h3>
+              <div className="space-y-4">
+                {section.body.map((paragraph, idx) => {
+                  const parts = paragraph.split('Toolsvana');
+                  if (parts.length > 1) {
+                    return (
+                      <p key={idx} className="leading-relaxed text-slate-300">
+                        {parts[0]}
+                        <a 
+                          href="https://toolsvana.com/tool/pdf-to-jpg" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="text-cyan-400 hover:text-cyan-300 transition-colors underline decoration-cyan-400/30 hover:decoration-cyan-300"
+                        >
+                          Toolsvana
+                        </a>
+                        {parts[1]}
+                      </p>
+                    );
+                  }
+                  return <p key={idx} className="leading-relaxed text-slate-300">{paragraph}</p>;
+                })}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-16">
+          <h2 className="mb-8 text-3xl font-semibold text-white">Frequently asked questions</h2>
+          <div className="space-y-6">
+            {faqs.map((faq) => (
+              <div key={faq.question} className="rounded-2xl border border-white/10 bg-slate-900/40 p-6">
+                <h3 className="mb-2 text-lg font-semibold text-white">{faq.question}</h3>
+                <p className="text-sm leading-relaxed text-slate-300">{faq.answer}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </main>
+
+      <footer className="mt-16 border-t border-white/10 bg-slate-950/80 py-8 text-center text-sm text-slate-400">
+        <p>All processing happens locally in your browser. Powered by Lightning Studio.</p>
+      </footer>
     </div>
   );
 }
