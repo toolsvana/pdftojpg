@@ -1,53 +1,58 @@
 # PDF to JPG Converter
 
-A fast, privacy-first PDF to JPG converter that runs entirely in your browser. Built with Next.js and optimized for SEO.
+A browser-based tool that converts PDF pages into JPG images. Built with Next.js and runs entirely in your browser for complete privacy.
 
-## Features
+🔗 **Live Demo:** [PDF to JPG](https://toolsvana.com/tool/pdf-to-jpg)
 
-- ✅ **100% Client-Side** - No uploads, all processing happens in your browser
-- ✅ **High Quality** - 2× scale rendering, 92% JPG quality
-- ✅ **Fast & Responsive** - Supports up to 25 pages with real-time progress
-- ✅ **SEO Optimized** - Static export with full content in HTML
-- ✅ **Privacy First** - Your files never leave your device
+## What it does
 
-## Tech Stack
+This tool takes PDF files and converts each page into a separate JPG image. The conversion happens locally in your browser using JavaScript, so your files never get uploaded to any server.
 
-- **Next.js 16** - Static site generation
-- **TypeScript** - Type safety
-- **Tailwind CSS** - Styling
-- **pdfjs-dist** - PDF rendering
+## Key features
 
-## Getting Started
+- Converts PDF pages to JPG format
+- Works offline after initial load
+- No file size limits
+- Maintains good image quality
+- Shows conversion progress
+- Download all images as they're ready
 
-Install dependencies:
+## How to use
+
+1. Drop a PDF file or click to browse
+2. Wait for conversion to complete
+3. Download individual JPG images
+
+## Technical details
+
+Built with Next.js 16, TypeScript, and Tailwind CSS. Uses pdf.js library for PDF rendering and HTML Canvas API for image generation. Configured as a static site for easy deployment.
+
+## Running locally
 
 ```bash
 npm install
-```
-
-Run the development server:
-
-```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to see the tool.
+Visit http://localhost:3000
 
-## Build for Production
+## Building for production
 
 ```bash
 npm run build
 ```
 
-This creates a static export in the `/out` folder, ready for deployment to Cloudflare Pages or any static hosting.
+Output goes to the `out` directory as a static site.
 
-## Deploy to Cloudflare Pages
+## Deployment
 
-1. Push this repo to GitHub
-2. Connect to Cloudflare Pages
-3. Build command: `npm run build`
-4. Output directory: `out`
+Works on any static hosting platform. Recommended settings:
+- Build command: `npm run build`
+- Output directory: `out`
 
-## License
+## Project structure
 
-MIT
+- `app/components/` - React components
+- `app/page.tsx` - Main page
+- `app/globals.css` - Styling
+- `next.config.ts` - Configuration
